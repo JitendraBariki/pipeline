@@ -19,6 +19,11 @@ steps:
   displayName: 'Run a multi-line script'
 
 - bash: |
-    git push --prune https://$(GITHUB_PAT)@github.com/$REPO_NAME \
-        +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
+    git clone --mirror https://github.com/JitendraBariki/pipeline/primary_repo.git
+    cd primary_repo.git
+    git remote add --mirror=fetch secondary https://jitendra1989.visualstudio.com/_git/pipeline/secondary_repo.git
+    git fetch origin
+    git push secondary --all
+    git fetch origin
+    git push secondary --all
   displayName: 'Copy to Github'
