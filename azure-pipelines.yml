@@ -19,9 +19,9 @@ steps:
   displayName: 'Run a multi-line script'
 
 - bash: |
-    git clone --mirror https://github.com/JitendraBariki/pipeline/primary_repo.git
+    git clone --mirror https://github.com/JitendraBariki/pipeline
     cd primary_repo.git
-    git remote add --mirror=fetch secondary https://jitendra1989.visualstudio.com/_git/pipeline/secondary_repo.git
+    git remote add --mirror=fetch secondary https://jitendra1989.visualstudio.com/_git/pipeline
     git fetch origin
     git push secondary --all
     git fetch origin
